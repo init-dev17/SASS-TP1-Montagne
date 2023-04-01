@@ -1,0 +1,128 @@
+
+/* Fonts Google Oswald https://fonts.google.com/specimen/Oswald */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/* Fonts téléchargée sur Google et mis dans le dossier puis importée dans le projet
+https://fonts.google.com/specimen/DM+Serif+Display?query=dm+ser */
+@font-face {
+    font-family: "inter-bold";
+    src: url(../assets/fonts/Inter/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: "merri";
+    src: url(../assets/fonts/Merriweather/Merriweather-Light.ttf);
+}
+
+
+@font-face {
+    font-family: "DMSerif";
+    src: url(./assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+
+
+
+
+// variables
+// colors http://davidbau.com/colors/
+$color0: white;
+$color1: black;
+$color2: whitesmoke;
+$color3: grey;
+$color4: rgb(219, 119, 37);
+
+$color10: rgba(255, 255, 255, 0.288);
+$color11: rgb(17, 12, 12);
+$color12: rgba(255, 255, 255, 0.521);
+
+$white1: rgb(243,243,243);
+$white2: whitesmoke;
+$black1: rgb(17,17,17);
+$black2: rgb(17, 12, 12);
+$grey1: rgb(209,209,209);
+$grey2: rgb(233,233,233);
+$grey3: rgb(105,105,105);
+
+
+$font1: inter-bold, sans-serif;
+$font2: merri, serif;
+
+
+
+
+
+
+// MIXINS
+@mixin title{ // @include title;
+    font-family: $font1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@mixin center { // @include center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@mixin margin { // @include margin;
+    margin: 0 8%;
+
+    
+    //@media screen and (max-width: 910px) { /* Tablette, actif si max-width à 870-910px */ }
+      
+    //@media screen and (max-width: 650px) { /* Mobile, actif si max-width à 650px */    }
+}
+
+
+@mixin informations{ // @include informations;
+    display: flex;
+
+
+
+    h3{
+        padding: 3%;
+        text-transform: uppercase;
+    }
+    p{
+        padding: 3%;
+    }
+}
+
+
+html{
+    scroll-behavior: smooth; // scroll en douceur
+}
+
+
+body{
+    background: url(../assets/img/bg.jpg) fixed center/cover;
+    text-align: center;
+    font-family: $font2;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    &:before{ // animation au moment du chargement de la page web
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0;
+        background-color: $black1;
+        animation: animBefore 1.5s ease forwards; // appelle l'animation et reste dans l'état final (forwards)
+        animation-delay: 0.15s;
+
+        @keyframes animBefore{ 
+            to{
+                opacity: 0;
+            }
+        }
+    }
+}
+
+// .btn{}

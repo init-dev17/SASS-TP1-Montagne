@@ -1,0 +1,392 @@
+@charset "UTF-8";
+/* Fonts Google Oswald https://fonts.google.com/specimen/Oswald */
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+/* Fonts téléchargée sur Google et mis dans le dossier puis importée dans le projet
+https://fonts.google.com/specimen/DM+Serif+Display?query=dm+ser */
+@font-face {
+  font-family: "inter-bold";
+  src: url(../assets/fonts/Inter/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "merri";
+  src: url(../assets/fonts/Merriweather/Merriweather-Light.ttf);
+}
+@font-face {
+  font-family: "DMSerif";
+  src: url(./assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url(../assets/img/bg.jpg) fixed center/cover;
+  text-align: center;
+  font-family: merri, serif;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+body:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0;
+  background-color: rgb(17, 17, 17);
+  animation: animBefore 1.5s ease forwards;
+  animation-delay: 0.15s;
+}
+@keyframes animBefore {
+  to {
+    opacity: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: rgba(255, 255, 255, 0.288);
+  margin: 0 15%;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+}
+nav ul {
+  display: flex;
+}
+nav ul li {
+  padding: 5%;
+}
+nav ul li a {
+  text-decoration: none;
+}
+nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.521);
+}
+nav .links li:first-child {
+  background-color: rgba(255, 255, 255, 0.521);
+}
+nav .social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  color: white;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: headerAnim 1.5s forwards;
+}
+@keyframes headerAnim {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+header h1 {
+  margin: 5% 15%;
+  font-size: 3.5rem;
+  font-family: inter-bold, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header p {
+  margin: 0 5%;
+  font-style: italic;
+  width: 85%;
+}
+
+.articles-container {
+  background: white;
+  margin: 0 15%;
+  text-align: center;
+}
+.articles-container .date {
+  padding: 5% 0;
+}
+.articles-container h1 {
+  text-transform: uppercase;
+}
+.articles-container img {
+  max-width: 100%;
+}
+.articles-container p {
+  padding: 5% 0;
+}
+.articles-container .main-article {
+  margin: 0% 8%;
+}
+.articles-container .main-article .left {
+  position: relative;
+}
+.articles-container .main-article .left::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 1px;
+  background: red;
+  left: 20%;
+  transform: translateX(-50%);
+  bottom: -40px;
+}
+.articles-container .main-article .right {
+  position: relative;
+}
+.articles-container .main-article .right::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 1px;
+  background: lightgray;
+  right: -20%;
+  transform: translateX(-80%);
+  bottom: 40px;
+}
+
+.secondary-articles {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: white;
+  margin: 0 15%;
+  text-align: center;
+}
+.secondary-articles .other-articles {
+  display: block;
+  margin: 8%;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: white;
+  margin: 5% 15%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-rows: 25% 25% 50%;
+  grid-template-areas: "input1" "input2" "texta ";
+  gap: 10px;
+  max-width: 600px;
+}
+
+.textarea {
+  grid-area: texta;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  margin: 10px 0 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+#message {
+  height: 180px;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border: 2px solid rgb(17, 12, 12);
+}
+
+textarea {
+  resize: none;
+}
+
+.form-container .main-button {
+  margin: 35px 0 0 0;
+}
+
+.informations {
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25%;
+  align-items: center;
+}
+.informations .address {
+  display: flex;
+}
+.informations .address h3 {
+  padding: 3%;
+  text-transform: uppercase;
+}
+.informations .address p {
+  padding: 3%;
+}
+.informations .phone {
+  display: flex;
+}
+.informations .phone h3 {
+  padding: 3%;
+  text-transform: uppercase;
+}
+.informations .phone p {
+  padding: 3%;
+}
+.informations .email {
+  display: flex;
+}
+.informations .email h3 {
+  padding: 3%;
+  text-transform: uppercase;
+}
+.informations .email p {
+  padding: 3%;
+}
+.informations .social {
+  display: flex;
+}
+.informations .social h3 {
+  padding: 3%;
+  text-transform: uppercase;
+}
+.informations .social p {
+  padding: 3%;
+}
+.informations ul {
+  display: flex;
+  gap: 8%;
+}
+
+/*
+.social{
+    ul {
+        display: flex;
+        justify-content: space-between;
+        width: 33%;
+        min-width: 300px;
+        margin: 0 auto;
+
+        a {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            width: 44px;
+            height: 44px;
+
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+          }
+
+      }
+
+}*/
+.form-container {
+  background: white;
+  margin: 5% 15%;
+  height: 500px;
+}
+
+button {
+  margin: 30px;
+}
+
+.circle-button {
+  font-size: 2.5rem;
+  padding: 4px 10px;
+  color: whitesmoke;
+  background-color: transparent;
+  border: 2px solid whitesmoke;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  outline: none;
+  transition: 0.4s ease;
+}
+.circle-button:hover {
+  border: 2px solid whitesmoke;
+  transition: 0.3s;
+  transform: scale(1.2);
+}
+.circle-button:active {
+  transform: scale(1.2);
+  background-color: whitesmoke;
+  color: black;
+}
+
+nav li a {
+  color: whitesmoke;
+}
+nav li:hover a {
+  color: black;
+}
+
+.main-button {
+  padding: 8px 15px;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  outline: none;
+  transition: 0.4s ease;
+}
+.main-button a {
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: black;
+}
+.main-button:hover {
+  border: 2px solid rgb(17, 12, 12);
+  background-color: rgb(17, 12, 12);
+  transition: 0.3s;
+  color: whitesmoke;
+}
+.main-button:hover a {
+  color: whitesmoke;
+}
+.main-button:active {
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.informations a {
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.informations a:hover {
+  border: 1px solid black;
+  color: black;
+}/*# sourceMappingURL=index.css.map */

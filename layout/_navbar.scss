@@ -1,0 +1,54 @@
+
+
+
+
+
+nav{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background: $color10;
+    margin: 0 15%; 
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+
+    ul{
+        display: flex;
+        
+        
+        
+        li{
+            padding: 5%;
+            a{
+                text-decoration: none;
+            }
+            &:hover{
+                background-color: $color12;    
+                }           
+        }
+    }
+    .links{
+        
+        li{
+            
+            &:first-child{
+                background-color: $color12;
+
+            }
+
+        }
+            
+    }
+    .social{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+
+
+}
+
+
+
+
