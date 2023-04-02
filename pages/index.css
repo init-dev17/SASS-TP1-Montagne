@@ -60,10 +60,13 @@ nav {
   display: grid;
   grid-template-columns: 50% 50%;
   background: rgba(255, 255, 255, 0.288);
-  margin: 0 15%;
-  text-align: center;
-  align-items: center;
-  text-decoration: none;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  max-width: 910px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 nav ul {
   display: flex;
@@ -77,12 +80,45 @@ nav ul li a {
 nav ul li:hover {
   background-color: rgba(255, 255, 255, 0.521);
 }
+nav .links:hover li:not(hover) {
+  background-color: transparent;
+}
+nav .links:hover li:not(hover) a {
+  color: white;
+}
+nav .links:hover li:not(hover):hover {
+  background-color: rgba(255, 255, 255, 0.521);
+}
+nav .links:hover li:not(hover):hover a {
+  color: black;
+}
+nav .links li {
+  display: flex;
+  align-items: center;
+  font-family: inter-bold, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  padding: 0 15px;
+}
 nav .links li:first-child {
   background-color: rgba(255, 255, 255, 0.521);
+}
+nav .links li:first-child a {
+  color: rgb(17, 17, 17);
 }
 nav .social {
   display: flex;
   justify-content: flex-end;
+  font-size: 1.5rem;
+  margin-right: 5%;
+}
+nav .social li {
+  transition: 0.4s;
+  cursor: pointer;
+}
+nav .social li:hover i {
+  transform: scale(1.25);
 }
 
 header {
@@ -91,6 +127,7 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
+  position: relative;
   min-height: 100vh;
   color: white;
   opacity: 0;
@@ -121,9 +158,6 @@ header p {
   margin: 0 15%;
   text-align: center;
 }
-.articles-container .date {
-  padding: 5% 0;
-}
 .articles-container h1 {
   text-transform: uppercase;
 }
@@ -131,48 +165,57 @@ header p {
   max-width: 100%;
 }
 .articles-container p {
-  padding: 5% 0;
+  width: 90%;
+  margin: 30px auto;
+  font-style: italic;
+  font-size: 0.8rem;
+  line-height: 30px;
 }
 .articles-container .main-article {
   margin: 0% 8%;
 }
-.articles-container .main-article .left {
+.articles-container .main-article span {
+  display: block;
   position: relative;
+  padding: 5% 0;
 }
-.articles-container .main-article .left::before {
+.articles-container .main-article span::before, .articles-container .main-article span:after {
   content: "";
   position: absolute;
   width: 30%;
   height: 1px;
-  background: red;
-  left: 20%;
-  transform: translateX(-50%);
-  bottom: -40px;
+  background: rgb(209, 209, 209);
+  transform: translateX(0%);
+  top: 50%;
 }
-.articles-container .main-article .right {
-  position: relative;
+@media screen and (max-width: 600px) {
+  .articles-container .main-article span::before, .articles-container .main-article span:after {
+    width: 20%;
+  }
 }
-.articles-container .main-article .right::before {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 1px;
-  background: lightgray;
-  right: -20%;
-  transform: translateX(-80%);
-  bottom: 40px;
+.articles-container .main-article span:before {
+  left: 0;
 }
-
-.secondary-articles {
+.articles-container .main-article span:after {
+  right: 0;
+}
+.articles-container .secondary-articles {
   display: grid;
   grid-template-columns: 50% 50%;
   background: white;
-  margin: 0 15%;
+  padding: 0 8%;
   text-align: center;
+  border-top: 1px solid rgb(209, 209, 209);
 }
-.secondary-articles .other-articles {
+.articles-container .secondary-articles .other-articles1, .articles-container .secondary-articles .other-articles2 {
   display: block;
-  margin: 8%;
+  padding: 8%;
+}
+.articles-container .secondary-articles .other-articles1 p, .articles-container .secondary-articles .other-articles2 p {
+  text-align: left;
+}
+.articles-container .secondary-articles .other-articles1 {
+  border-right: 1px solid rgb(209, 209, 209);
 }
 
 .contact {
@@ -182,96 +225,31 @@ header p {
   margin: 5% 15%;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-rows: 25% 25% 50%;
-  grid-template-areas: "input1" "input2" "texta ";
-  gap: 10px;
-  max-width: 600px;
-}
-
-.textarea {
-  grid-area: texta;
-}
-
-label {
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-input[type=text],
-textarea {
-  width: 100%;
-  margin: 10px 0 20px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  transition: 0.2s;
-}
-
-#message {
-  height: 180px;
-}
-
-input[type=text]:focus,
-textarea:focus {
-  border: 2px solid rgb(17, 12, 12);
-}
-
-textarea {
-  resize: none;
-}
-
-.form-container .main-button {
-  margin: 35px 0 0 0;
-}
-
 .informations {
   display: grid;
-  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-rows: repeat(4, 1fr);
+}
+.informations .address, .informations .phone, .informations .email, .informations .social {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding: 5%;
+  border-bottom: 1px solid rgb(209, 209, 209);
   align-items: center;
 }
-.informations .address {
-  display: flex;
-}
-.informations .address h3 {
-  padding: 3%;
+.informations .address h3, .informations .phone h3, .informations .email h3, .informations .social h3 {
+  font-family: inter-bold, sans-serif;
+  letter-spacing: 2px;
   text-transform: uppercase;
-}
-.informations .address p {
+  font-size: 0.7rem;
   padding: 3%;
+  color: rgb(105, 105, 105);
 }
-.informations .phone {
-  display: flex;
-}
-.informations .phone h3 {
+.informations .address p, .informations .phone p, .informations .email p, .informations .social p {
   padding: 3%;
-  text-transform: uppercase;
-}
-.informations .phone p {
-  padding: 3%;
-}
-.informations .email {
-  display: flex;
-}
-.informations .email h3 {
-  padding: 3%;
-  text-transform: uppercase;
-}
-.informations .email p {
-  padding: 3%;
-}
-.informations .social {
-  display: flex;
-}
-.informations .social h3 {
-  padding: 3%;
-  text-transform: uppercase;
-}
-.informations .social p {
-  padding: 3%;
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 26px;
+  color: grey;
 }
 .informations ul {
   display: flex;
@@ -304,8 +282,54 @@ textarea {
 }*/
 .form-container {
   background: white;
-  margin: 5% 15%;
-  height: 500px;
+  padding: 8% 10%;
+  border-right: 1px solid rgb(209, 209, 209);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-rows: 20% 20% 60%;
+  grid-template-areas: "input1" "input2" "texta ";
+  gap: 10px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.textarea {
+  grid-area: texta;
+}
+
+label {
+  font-family: inter-bold, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: rgb(105, 105, 105);
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  margin: 10px 0 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+#message {
+  height: 180px;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border: 2px solid rgb(17, 12, 12);
+}
+
+textarea {
+  resize: none;
 }
 
 button {

@@ -8,6 +8,7 @@ header{
     justify-content: center;
     text-align: center;
 
+    position: relative;
     // margin: 10% 5%;
 
     min-height: 100vh;
@@ -40,79 +41,3 @@ header{
 }
 
 
-
-.articles-container{
-    background: $color0;
-    margin: 0 15%;
-    text-align: center;
-    
-    .date{ 
-        padding: 5% 0;
-    }
-    h1{
-        text-transform: uppercase;
-    }
-    img{
-        max-width: 100%;
-        // object-fit: cover
-    }
-    p{
-        padding: 5% 0;
-    }
-    .main-article{
-        margin: 0% 8%;
-        
-
-         
-        .left{
-            position: relative;
-
-            &::before{
-            content: "";
-            position: absolute;
-            width: 30%;
-            height: 1px;
-            background: red;
-            // background: lightgray;
-            left: 20%;
-            transform: translateX(-50%);
-            bottom: -40px;
-            }
-        }
-
-        .right{
-            position: relative;
-
-            &::before{
-            content: "";
-            position: absolute;
-            width: 30%;
-            height: 1px;
-            background: lightgray;
-            right: -20%;
-            transform: translateX(-80%);
-            bottom: 40px;
-            }
-        } 
-        
-    }
-
-
-}
-
-
-.secondary-articles{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    background: $color0;
-    margin: 0 15%;
-    text-align: center;
-
-    
-
-    .other-articles{
-        display: block;
-        margin: 8%;
-        
-    }    
-}

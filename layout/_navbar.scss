@@ -1,22 +1,30 @@
 
 
 
-
-
+ 
+ 
 nav{
     display: grid;
     grid-template-columns: 50% 50%;
     background: $color10;
-    margin: 0 15%; 
-    text-align: center;
-    align-items: center;
-    text-decoration: none;
+    //margin: 0 auto; 
+   
+    // margin: 0 15%;
+    position: absolute;
+    
+
+    z-index: 100; 
+    bottom: 0;
+    //width: calc(15%-1080px);
+    max-width: 910px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
 
     ul{
         display: flex;
-        
-        
-        
         li{
             padding: 5%;
             a{
@@ -28,27 +36,72 @@ nav{
         }
     }
     .links{
+        // height: 100%; // Pour que la sélection soit totale pendant le hover 
+        
+        // Déselectionne le First child en passant le hover sur d'autres liens
+        &:hover li:not(hover){ 
+            background-color: transparent;
+            a{
+                color: white;
+            }
+            &:hover{
+                background-color: $color12;    
+                a{
+                    color: black;
+                }
+            }  
+        }
+        
         
         li{
+            display: flex;
+            align-items: center;
+             
+
+            @include title;
+            font-size: 0.7rem;
+            padding: 0 15px;
+
             
+            // First child, fond blanc et police noire
             &:first-child{
                 background-color: $color12;
+                a{
+                    color: $black1;
+                }
 
+                
             }
-
         }
-            
+           
     }
+
+
     .social{
         display: flex;
         justify-content: flex-end;
+
+        font-size: 1.5rem;
+
+        
+        margin-right: 5%;
+    
+        li{
+            transition: 0.4s;
+            cursor: pointer;
+            &:hover{
+                i{
+                transform: scale(1.25);
+                
+                }
+            }
+        }
+
+
     }
-
-
-
-
+    
 }
-
+ 
 
 
 

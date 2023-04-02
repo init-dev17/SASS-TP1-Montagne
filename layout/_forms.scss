@@ -1,8 +1,65 @@
-
+// // // // // // // Formulaires
 
 .form-container{
     background: $color0;
-    margin: 5% 15%;     
-    height: 500px;
+    padding: 8% 10%;     
+    //height: 500px;
+
+    border-right: 1px solid $grey1;
 
 } 
+
+
+
+.form-grid{
+    display: grid;
+    // align-items : center; 
+
+    grid-template-rows: 20% 20% 60%;
+    // grid-template-columns: 100px 224px;
+    grid-template-areas:
+      "input1"
+      "input2"
+      "texta ";
+    gap: 10px;
+    // width: 85%;
+    max-width: 600px;
+    text-align: left;
+}
+
+
+.textarea {
+    grid-area: texta;
+}
+label {
+    @include title;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: $grey3;
+
+}
+input[type="text"],
+  textarea {
+    width: 100%;
+    margin: 10px 0 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#message{
+    height: 180px;
+}
+ 
+input[type="text"]:focus,
+  textarea:focus {
+    border: 2px solid $color11;
+}
+textarea {
+    resize: none;
+}  
+
+
+ 

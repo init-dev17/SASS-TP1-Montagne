@@ -80,16 +80,22 @@ $font2: merri, serif;
 
 
 @mixin informations{ // @include informations;
-    display: flex;
-
-
-
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 5%;
+    
     h3{
+        @include title;
+        font-size: 0.7rem;
         padding: 3%;
-        text-transform: uppercase;
+        color: $grey3;
     }
     p{
         padding: 3%;
+        text-align: left;
+        font-size: 0.8rem;
+        line-height: 26px;
+        color: grey;
     }
 }
 

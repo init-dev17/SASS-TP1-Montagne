@@ -7,84 +7,25 @@
     margin: 5% 15%; 
 }
 
-// // // // // // // Formulaires
-.form-grid{
-    display: grid;
-    // align-items : center; 
-
-    grid-template-rows: 25% 25% 50%;
-    // grid-template-columns: 100px 224px;
-    grid-template-areas:
-      "input1"
-      "input2"
-      "texta ";
-    gap: 10px;
-    // width: 85%;
-    max-width: 600px;
-}
-
-
-.textarea {
-    grid-area: texta;
-}
-label {
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-}
-input[type="text"],
-  textarea {
-    width: 100%;
-    margin: 10px 0 20px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    transition: 0.2s;
-}
-
-#message{
-    height: 180px;
-}
- 
-input[type="text"]:focus,
-  textarea:focus {
-    border: 2px solid $color11;
-}
-textarea {
-    resize: none;
-}  
-
-
-.form-container{
-    .main-button{
-        margin: 35px 0 0 0;
-    }
-}
-
 
 
 
 // // // // // // // Informations de contact 
 .informations{
     display: grid;
-    grid-template-rows: 25% 25% 25% 25% ;
-    align-items : center; 
+    //grid-template-rows: 25% 25% 25% 25% ;
+    grid-template-rows: repeat(4, 1fr) ;
+    
+    
+    
+ 
 
 
 
-    .address{
-        @include informations
-    }
-    .phone{
-        @include informations
-    }
-    .email{
-        @include informations
-    }
-    .social{
-        @include informations
+    .address, .phone, .email, .social{
+        @include informations;
+        border-bottom: 1px solid $grey1;
+        align-items : center; 
     }
 
 
