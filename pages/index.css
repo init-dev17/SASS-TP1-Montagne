@@ -164,7 +164,7 @@ header p {
 .articles-container img {
   max-width: 100%;
 }
-.articles-container p {
+.articles-container p, .articles-container .date {
   width: 90%;
   margin: 30px auto;
   font-style: italic;
@@ -207,6 +207,11 @@ header p {
   text-align: center;
   border-top: 1px solid rgb(209, 209, 209);
 }
+@media screen and (max-width: 1030px) {
+  .articles-container .secondary-articles {
+    display: block;
+  }
+}
 .articles-container .secondary-articles .other-articles1, .articles-container .secondary-articles .other-articles2 {
   display: block;
   padding: 8%;
@@ -214,8 +219,15 @@ header p {
 .articles-container .secondary-articles .other-articles1 p, .articles-container .secondary-articles .other-articles2 p {
   text-align: left;
 }
-.articles-container .secondary-articles .other-articles1 {
-  border-right: 1px solid rgb(209, 209, 209);
+@media screen and (min-width: 1031px) {
+  .articles-container .secondary-articles .other-articles1 {
+    border-right: 1px solid rgb(209, 209, 209);
+  }
+}
+@media screen and (max-width: 1030px) {
+  .articles-container .secondary-articles .other-articles1 {
+    border-bottom: 1px solid rgb(209, 209, 209);
+  }
 }
 
 .contact {
@@ -223,6 +235,11 @@ header p {
   grid-template-columns: 50% 50%;
   background-color: white;
   margin: 5% 15%;
+}
+@media screen and (max-width: 1030px) {
+  .contact {
+    display: block;
+  }
 }
 
 .informations {
@@ -232,8 +249,8 @@ header p {
 .informations .address, .informations .phone, .informations .email, .informations .social {
   display: grid;
   grid-template-columns: 30% 70%;
-  padding: 5%;
-  border-bottom: 1px solid rgb(209, 209, 209);
+  padding: 3%;
+  border-top: 1px solid rgb(209, 209, 209);
   align-items: center;
 }
 .informations .address h3, .informations .phone h3, .informations .email h3, .informations .social h3 {
@@ -251,9 +268,22 @@ header p {
   line-height: 26px;
   color: grey;
 }
+@media screen and (max-width: 530px) {
+  .informations .address, .informations .phone, .informations .email, .informations .social {
+    display: block;
+  }
+  .informations .address p, .informations .phone p, .informations .email p, .informations .social p {
+    text-align: center;
+  }
+}
 .informations ul {
   display: flex;
   gap: 8%;
+}
+@media screen and (max-width: 530px) {
+  .informations ul {
+    justify-content: center;
+  }
 }
 
 /*
@@ -409,8 +439,17 @@ nav li:hover a {
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  text-decoration: none;
+  color: rgb(17, 12, 12);
 }
 .informations a:hover {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid rgb(17, 12, 12);
+  color: white;
+  background-color: rgb(17, 12, 12);
+  font-size: 1.2rem;
+}
+.informations a:active {
+  color: white;
+  background-color: rgb(17, 12, 12);
+  transform: scale(1.2);
 }/*# sourceMappingURL=index.css.map */

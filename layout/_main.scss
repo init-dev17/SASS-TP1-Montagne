@@ -16,7 +16,7 @@
         // object-fit: cover
     }
      
-    p{
+    p, .date{
         width: 90%;
         margin: 30px auto;
         font-style: italic;
@@ -74,24 +74,31 @@
         border-top: 1px solid $grey1;
 
 
-    .other-articles1, .other-articles2{
-        display: block;
-        padding: 8%;
-        
-        p{
-            text-align: left;
+        @media screen and (max-width: 1030px) {
+            display: block;
+
         }
+
+        .other-articles1, .other-articles2{
+            display: block;
+            padding: 8%;
+        
+        
+            p{
+                text-align: left;
+            }
     }    
     
     .other-articles1{
-        border-right: 1px solid $grey1;
+        @media screen and (min-width: 1031px) {
+            border-right: 1px solid $grey1;
+        }
+
+        @media screen and (max-width: 1030px) {
+            border-bottom: 1px solid $grey1;
+        }
     }
-
-
-
-
-
-
+    
     }
 
 }

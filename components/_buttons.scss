@@ -100,10 +100,20 @@ nav{
         justify-content: center;
         align-items: center;
         transition: 0.3s;
+        text-decoration: none;
+        color: $black2;
+
 
         &:hover {
-            border: 1px solid $color1;
-            color: $color1;
+            border: 1px solid $black2;
+            color: $color0;
+            background-color: $black2;
+            font-size: 1.2rem;
+      }
+      &:active{
+        color: $color0;
+        background-color: $black2;
+        transform: scale(1.2);  
       }
     }
 }

@@ -82,7 +82,7 @@ $font2: merri, serif;
 @mixin informations{ // @include informations;
     display: grid;
     grid-template-columns: 30% 70%;
-    padding: 5%;
+    padding: 3%;
     
     h3{
         @include title;
@@ -97,6 +97,14 @@ $font2: merri, serif;
         line-height: 26px;
         color: grey;
     }
+
+    @media screen and (max-width: 530px) {
+        display: block;
+        p{
+            text-align: center;
+        }
+    }
+
 }
 
 

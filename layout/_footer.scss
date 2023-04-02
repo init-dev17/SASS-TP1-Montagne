@@ -5,6 +5,11 @@
     grid-template-columns: 50% 50%;
     background-color: white;
     margin: 5% 15%; 
+
+    @media screen and (max-width: 1030px) {
+        display: block;
+    }
+
 }
 
 
@@ -24,7 +29,7 @@
 
     .address, .phone, .email, .social{
         @include informations;
-        border-bottom: 1px solid $grey1;
+        border-top: 1px solid $grey1;
         align-items : center; 
     }
 
@@ -32,6 +37,12 @@
     ul {
         display: flex;
         gap: 8%;
+
+        @media screen and (max-width: 530px) {
+            
+                justify-content: center;
+            }
+        
 
     
     }
