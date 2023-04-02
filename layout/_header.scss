@@ -32,6 +32,10 @@ header{
         font-size: 3.5rem;
         @include title;
 
+        @media screen and (max-width: 1030px) {
+            font-size: 2.5rem;
+        }
+
     }
     p{
         margin: 0 5%;

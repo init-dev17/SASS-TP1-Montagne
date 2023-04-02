@@ -6,6 +6,11 @@
 nav{
     display: grid;
     grid-template-columns: 50% 50%;
+    @media screen and (max-width: 650px) {
+        grid-template-columns: 100%;
+        align-items: center;
+    }
+
     background: $color10;
     //margin: 0 auto; 
    
@@ -17,7 +22,7 @@ nav{
     bottom: 0;
     //width: calc(15%-1080px);
     max-width: 910px;
-    width: 80%;
+    width: 70%;
     left: 50%;
     transform: translateX(-50%);
 
@@ -36,7 +41,7 @@ nav{
         }
     }
     .links{
-        // height: 100%; // Pour que la sélection soit totale pendant le hover 
+         
         
         // Déselectionne le First child en passant le hover sur d'autres liens
         &:hover li:not(hover){ 
@@ -56,13 +61,20 @@ nav{
         li{
             display: flex;
             align-items: center;
-             
-
+            min-height: 60px;
+            
             @include title;
             font-size: 0.7rem;
             padding: 0 15px;
 
-            
+            @media screen and (max-width: 650px) {
+                font-size: 0.5rem; 
+            }
+            @media screen and (max-width: 350px) { 
+                padding: 0 0;
+            }
+
+
             // First child, fond blanc et police noire
             &:first-child{
                 background-color: $color12;
@@ -80,11 +92,12 @@ nav{
     .social{
         display: flex;
         justify-content: flex-end;
-
+        margin-right: 5%;
         font-size: 1.5rem;
 
-        
-        margin-right: 5%;
+        @media screen and (max-width: 650px) {
+            display: none;
+        }
     
         li{
             transition: 0.4s;
